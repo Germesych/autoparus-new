@@ -1,0 +1,14 @@
+/node_modules/
+/.git/
+/**/.git
+/.idea/
+/**/.idea
+/**/Thumbs.db
+/**/*.DS_Store
+/**/package-lock.json
+/**/debug.log
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
