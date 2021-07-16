@@ -334,12 +334,17 @@ padding: 70px 0;
 	border: 1px solid #d0d0d0;
 	max-width: 370px;
 	width: 100%;
-	height: 370px;
+	height: 380px;
 	margin-right: 20px;
 	margin-bottom: 50px;
+	padding: 20px 0;
 	border-radius: 2px;
 	overflow: hidden;
 }
+.two-title{
+	display: none;
+}
+
 .news__col:last-child{
 	margin-right: 0;
 	margin-bottom: 0;
@@ -357,9 +362,9 @@ padding: 70px 0;
 }
 
 .new__col-title{
-	padding: 20px 10px;
-	text-align: center;
+	padding: 0px 10px;
 	font-size: 18px;
+	margin-bottom: 20px;
 }
 .new__col-description{
 	margin-top: 15px;
@@ -594,7 +599,14 @@ padding: 70px 0;
 }
 /* modal video END */
 
-
+.autor-news__avatar {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 100%;
+    margin-right: 20px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
 
 
 
@@ -614,6 +626,58 @@ padding: 70px 0;
 		    flex-wrap: wrap;
 	}
 }
+/* --------------------------------------  */
+@media (max-width: 920px){
+	.news__col .three-lines{
+	-ms-text-overflow: unset;
+    text-overflow: unset;
+    overflow: hidden;
+    -ms-line-clamp: 3;
+    -webkit-line-clamp: unset;
+    line-clamp: 3;
+    display: -webkit-box;
+    display: box;
+    word-wrap: unset;
+    -webkit-box-orient: unset;
+    box-orient: unset;
+
+	}
+	.news .wrap{
+		padding: 0px;
+	}
+	.news__col img{
+		width: 100%;
+		height: auto;
+	}
+	.news__col{
+		height: auto;
+		max-width: 100%;
+		margin-right: 0;
+	}
+	.two-title{
+		display: block;
+		padding: 0 10px;
+		margin-top: 20px;
+	}
+	.two-title:last-child{
+		display: block;
+		margin-top: 10px;
+	}
+	.autor-news__col{
+		max-width: 100%;
+		margin: 30px 0;
+		height: auto;
+		padding-bottom: 20px;
+	}
+	.autor-news__avatar {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 100%;
+    margin-right: 20px;
+    -o-object-fit: cover;
+    object-fit: cover;
+	}
+}
 
 @media (max-width: 789px){
 	.header {
@@ -621,14 +685,6 @@ padding: 70px 0;
 	}
 	.news {
     padding: 40px 0;
-	}
-	.autor-news__col {
-    margin: 20px 10px;
-	}
-	.news__col{
-		max-width: 65%;
-		height: 400px;
-		margin: 20px 0px;
 	}
 	.news__col img{
 		-webkit-filter: brightness(30%);
@@ -649,19 +705,6 @@ padding: 70px 0;
 }
 
 @media (max-width: 680px){
-	.news__col{
-		max-width: 90%;
-		height: 390px;
-	}
-	.autor-news__img {
-    height: 270px;
-	}
-	.autor-news__col{
-		width: 90%;
-		height: auto;
-		padding-bottom: 20px;
-	}
-
 	.nav{
 		display: none;
 	}
