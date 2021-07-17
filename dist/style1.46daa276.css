@@ -659,7 +659,7 @@ padding: 70px 0;
 		display: block;
 		padding: 0 10px;
 		margin-top: 20px;
-		color: var(--color-darck);
+		color: var(--text-color-dark);
 	}
 	.two-title:last-child{
 		display: block;
@@ -741,4 +741,4 @@ padding: 70px 0;
 	}
 }
 
-/*# sourceMappingURL=/style.78032849.css.map */
+/*# sourceMappingURL=/style1.46daa276.css.map */

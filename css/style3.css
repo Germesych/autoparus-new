@@ -14,7 +14,7 @@
 }
 @font-face {
     font-family: 'Ubuntu';
-    src: url('/Ubuntu-Bold.c738b651.woff') format('woff');
+    src: url('../fonts/Ubuntu-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -22,7 +22,7 @@
 
 @font-face {
     font-family: 'Ubuntu';
-    src: url('/Ubuntu-Regular.ae32a861.woff') format('woff');
+    src: url('../fonts/Ubuntu-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -30,7 +30,7 @@
 
 @font-face {
     font-family: 'Ubuntu';
-    src: url('/Ubuntu-Light.c7005022.woff') format('woff');
+    src: url('../fonts/Ubuntu-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -659,7 +659,7 @@ padding: 70px 0;
 		display: block;
 		padding: 0 10px;
 		margin-top: 20px;
-		color: var(--color-darck);
+		color: var(--text-color-dark);
 	}
 	.two-title:last-child{
 		display: block;
@@ -722,10 +722,6 @@ padding: 70px 0;
     height: auto;
     padding: 10px;
 	}
-	.news__col {
-    max-width: 100%;
-    height: 390px;
-	}
 	.autor-news__col{
 		margin: 30px 0;
 		width: 100%;
@@ -740,5 +736,3 @@ padding: 70px 0;
 		height: 70px;
 	}
 }
-
-/*# sourceMappingURL=/style.78032849.css.map */

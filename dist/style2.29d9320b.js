@@ -117,154 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/index.js":[function(require,module,exports) {
-// Start slider
-var $container = document.querySelector('#slider');
-var $slideRow = $container.querySelector('.slider__row');
-var $slideWrap = $container.querySelector('.slider__wrap');
-var $slideSelector = $container.querySelectorAll('.slider__slides');
-var $next = document.querySelector('#next');
-var $back = document.querySelector('#back');
-var $pagination = $container.querySelector('.slider__pagination');
-var slideWirth = $slideRow.clientWidth;
-var slideLength = $slideSelector.length;
-var count = 0;
-var marginValue = 0;
+})({"C:/Users/kaiot/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-function slideWirthFu(slideWirth) {
-  $slideSelector.forEach(function (item) {
-    item.style.width = "".concat(slideWirth, "px");
-  });
-}
-
-;
-slideWirthFu(slideWirth);
-
-function createPagination() {
-  for (var i = 0; i < slideLength; i++) {
-    var span = document.createElement('span');
-    span.className = "pagination__items";
-    $pagination.prepend(span);
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
 
-  $container.querySelector('.pagination__items').classList.add('active');
+  return bundleURL;
 }
 
-;
-createPagination(); // placeholder
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-function sliderEvent() {
-  var pg = $container.querySelectorAll('.pagination__items');
-  $next.addEventListener('click', function () {
-    if (count < slideLength - 1) {
-      pgRemoveActive();
-      count++;
-      marginValue = marginValue + slideWirth;
-      $slideWrap.style.left = "-".concat(marginValue, "px");
-      pg[count].classList.add('active');
+    if (matches) {
+      return getBaseURL(matches[0]);
     }
-  });
-  $back.addEventListener('click', function () {
-    if (count > 0) {
-      pgRemoveActive();
-      count--;
-      marginValue = marginValue - slideWirth;
-      $slideWrap.style.left = "-".concat(marginValue, "px");
-      pg[count].classList.add('active');
-    }
-  });
+  }
+
+  return '/';
 }
 
-;
-sliderEvent();
-
-function pgRemoveActive() {
-  var pg = $container.querySelectorAll('.pagination__items');
-  pg.forEach(function (item) {
-    item.classList.remove('active');
-  });
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
 }
 
-; // Video modal
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"C:/Users/kaiot/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
 
-function wsVideoModalInit(opnions) {
-  var id = options[0].src;
-  var widthVideo = null;
-  var heightVideo = null; // Рендер модального окна
+function updateLink(link) {
+  var newLink = link.cloneNode();
 
-  function _renderModal(idVideo, widthVideo, heightVideo) {
-    var $body = document.querySelector('body');
-    $body.classList.add('hiden');
-    videoBlock = " \n\t\t\t<div class=\"ws-modal__overlay\">\n            <span class=\"ws-modal__close\">&#10006;</span>\n            <iframe class=\"ws-modal__block\" style=\"width: ".concat(widthVideo || '870px', "; height: ").concat(heightVideo || '500px', ";\" src=\"https://www.youtube.com/embed/").concat(id || '', "\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n\t\t");
-    var div = document.createElement('div');
-    div.className = "ws-modal__video";
-    div.innerHTML = "".concat(videoBlock);
-    document.body.prepend(div);
-    var overlay = document.querySelector('.ws-modal__overlay');
+  newLink.onload = function () {
+    link.remove();
+  };
 
-    function _close(event) {
-      var modalVideo = document.querySelector('.ws-modal__video');
-      $body.classList.remove('hiden');
-      modalVideo.remove();
-      overlay.removeEventListener('click', _close);
-    }
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
 
-    overlay.addEventListener('click', _close);
-  } // Функция рендера превью
+var cssTimeout = null;
 
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
 
-  function _renderBlock(container) {
-    var src = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-    var alt = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
-    var videoImgBlock = "\n\t\t\t<div class=\"ws-modal__wrap\">\n          <div class=\"ws-video__icon\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fab\" data-icon=\"youtube\" class=\"svg-inline--fa fa-youtube fa-w-18\" role=\"img\" viewBox=\"0 0 576 512\">\n                  <path fill=\"currentColor\" d=\"M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z\" /></svg>\n              <img src=\"http://img.youtube.com/vi/".concat(id || '', "/hqdefault.jpg\" alt=\"").concat(alt || '', "\" class=\"ws-video__img\">\n          </div>\n      </div>\n\t  ");
-    var div = document.createElement('div');
-    div.className = "ws-modal__wrap";
-    div.innerHTML = "".concat(videoImgBlock);
-    container.prepend(div);
-  } // Функция рендера модального окна
-  // Проверяем не пуст ли массив и запускаем рендер
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
 
-
-  if (options.langth !== 0) {
-    // Навешиваем события клика на превью
-    var _eventClick = function _eventClick() {
-      var blockEvent = document.querySelectorAll('.ws-video__icon');
-      blockEvent.forEach(function (item) {
-        item.addEventListener('click', function () {
-          // console.log()
-          _renderModal();
-        });
-      });
-    };
-
-    // const container = document.querySelector(options.container);
-    for (var i = 0; i < options.length; i++) {
-      var container = document.querySelector(opnions[i].container);
-
-      if (!container) {
-        return '';
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
       }
-
-      widthVideo = opnions[i].widthVideo;
-      heightVideo = opnions[i].widthVideo;
-
-      _renderBlock(container, opnions[i].src, opnions[i].alt);
     }
 
-    _eventClick();
-  }
+    cssTimeout = null;
+  }, 50);
 }
 
-wsVideoModalInit(options = [{
-  container: '.slide-video',
-  src: 'efwL2aV54sY',
-  alt: 'video alt',
-  widthVideo: '870px',
-  heightVideo: '500px',
-  title: 'Title',
-  decription: 'Text Text Text Text Text Text Text Text Text Text Text Text'
-}]);
-},{}],"C:/Users/kaiot/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.exports = reloadCSS;
+},{"./bundle-url":"C:/Users/kaiot/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/style2.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./..\\fonts\\Ubuntu-Bold.woff":[["Ubuntu-Bold.c738b651.woff","fonts/Ubuntu-Bold.woff"],"fonts/Ubuntu-Bold.woff"],"./..\\fonts\\Ubuntu-Regular.woff":[["Ubuntu-Regular.ae32a861.woff","fonts/Ubuntu-Regular.woff"],"fonts/Ubuntu-Regular.woff"],"./..\\fonts\\Ubuntu-Light.woff":[["Ubuntu-Light.c7005022.woff","fonts/Ubuntu-Light.woff"],"fonts/Ubuntu-Light.woff"],"_css_loader":"C:/Users/kaiot/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"C:/Users/kaiot/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -468,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/kaiot/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
-//# sourceMappingURL=/js.00a46daa.js.map
+},{}]},{},["C:/Users/kaiot/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/style2.29d9320b.js.map
