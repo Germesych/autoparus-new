@@ -7,6 +7,7 @@
 	--text-color: #2b2b2b;
 	--border-color: #d0d0d0;
 	--swiper-theme-color: #ffffff;
+	--slider-wibth-padding_nav: 70px;
 }
 @media (prefers-reduced-motion: no-preference) {
 	:root {
@@ -203,47 +204,58 @@ p{
 .header{
 padding: 70px 0;
 }
-.slider{
-position: relative;
+
+//----------- Slider -------------
+.swiper-scrollbar-drag {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    left: 0;
+    top: 0;
 }
+.swiper-button-next, .swiper-button-prev{
+	/*color: #fff;*/
+	color: red;
+}
+.swiper-pagination-bullet{
+	background: #ffffff;
+}
+.slider-wrap{
+	position: relative;
+	padding: 0 var(--slider-wibth-padding_nav);
+	width: 100%;
+	height: 100%; 
+}
+
 .slider-nav{
-position: absolute;
-top: 50%;
--webkit-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-width: 100%;
-display: -webkit-box;
-display: -ms-flexbox;
-display: flex;
--webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-        justify-content: space-between;
-}
-.slider-nav .back, .next{
-font-size: 70px;
-cursor: pointer;
-}
-.slider-nav .back,.next > svg{
-	font-weight: 400;
-	fill: #86878B;
-}
-.slider__row{
-position: relative;
-background: #d0d0d0;
-width: 90%;
-height: 590px;
-margin: 0 auto;
-overflow: hidden;
-}
-.slider__wrap {
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: 100%;
 	height: 100%;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
+.slider-prev, .slider-next{
+	cursor: pointer;
+	display: block;
+	width: var(--slider-wibth-padding_nav);
+	height: var(--slider-wibth-padding_nav);
+	fill: rgba(0,0,0, .67);
+}
+.swiper-button-disabled{
+	fill: rgba(0,0,0, .1);
+}
+
 .slider__slides{
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -252,59 +264,38 @@ overflow: hidden;
 	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-align: end;
-	    -ms-flex-align: end;
-	        align-items: flex-end;
+	-ms-flex-align: end;
+	align-items: flex-end;
 	height: 500px;
 	overflow: hidden;
 }
+
 .slider__slides img{
 	width: 100%;
 	height: 100%;
 	-o-object-fit: contain;
-	   object-fit: contain;
-}
-.slide__text{
-	background: #fbfbfb;
-	margin: 0 20px 30px 10px;
-	padding: 30px 20px;
-	z-index: 9;
-	max-width: 650px;
-	width: 100%;
-	border-radius: 5px;
+	object-fit: contain;
 }
 .slide__title{
-margin-bottom: 25px;
+	margin: 0 0 25px 25px;
+	color: #fff;
+	width: 60%;
 }
 .slider__slides iframe{
 	width: 100%;
 	height: 100%;
 }
+.slider-pagination{
+	margin-top: 10px;
+	text-align: center;
+}
+.swiper-pagination-bullet{
+	background-color: #000;
+	margin-right: 5px;
+}
+/*.swiper-pagination-bullet-active{}*/
 
-.slider__pagination{
-display: -webkit-box;
-display: -ms-flexbox;
-display: flex;
--webkit-box-align: center;
-    -ms-flex-align: center;
-        align-items: center;
--webkit-box-pack: center;
-    -ms-flex-pack: center;
-        justify-content: center;
-width: 100%;
-margin: 20px 0;
-}
-.pagination__items{
-background: #bbb;
-display: inline-block;
-width: 12px;
-height: 12px;
-border-radius: 100%;
-margin: 0 5px;
-/* Спечиально так сделал margin, можно дать правый и отменить у последнего. Но так универсальнее */
-}
-.pagination__items.active{
-background: #000;
-}
+/* Swiper slider */
 /* /.header */
 
 
@@ -329,13 +320,11 @@ padding: 70px 0;
 	position: relative;
 	display: block;
 	text-decoration: none;
-	border: 1px solid #d0d0d0;
 	max-width: 370px;
 	width: 100%;
-	height: 380px;
+	height: auto;
 	margin-right: 20px;
 	margin-bottom: 50px;
-	padding: 20px 0;
 	border-radius: 2px;
 	overflow: hidden;
 }
@@ -358,9 +347,17 @@ padding: 70px 0;
 .news__col:hover{
 	background-color: #fafafa;
 }
-
+.autor-news__col-header{
+	padding: 0 7px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-bottom: 7px;
+}
 .new__col-title{
-	padding: 0px 10px;
 	font-size: 18px;
 	margin-bottom: 20px;
 }
@@ -371,6 +368,8 @@ padding: 70px 0;
 }
 
 .autor-news__col{
+	display: block;
+	text-decoration: none;
 	border: 1px solid var(--border-color);
 	max-width: 530px;
 	height: 730px;
@@ -383,7 +382,8 @@ padding: 70px 0;
 	margin-bottom: 0;
 }
 .autor-news__header{
-	padding: 0 20px;
+	padding: 15px 20px;
+	margin-bottom: 10px;
 	height: 60px;
 	width: 100%;
 	display: -webkit-box;
@@ -607,24 +607,6 @@ padding: 70px 0;
     object-fit: cover;
 }
 
-//----------- Slider -------------
-.swiper-scrollbar-drag {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    left: 0;
-    top: 0;
-}
-.swiper-button-next, .swiper-button-prev{
-	color: #fff;
-}
-.swiper-pagination-bullet{
-	background: #ffffff;
-}
-
-
 //----------- Media --------------
 
 @media (max-width: 1199px){
@@ -645,6 +627,18 @@ padding: 70px 0;
 }
 /* --------------------------------------  */
 @media (max-width: 920px){
+	.slider-wrap{
+		padding: 0;
+	}
+	.autor-news__col-header{
+		padding: 0 20px;
+	}
+	.slider-nav{
+		display: none;
+	}
+	.news{
+		padding: 30px 0;
+	}
 	.news__col .three-lines{
 	-ms-text-overflow: unset;
     text-overflow: unset;
@@ -657,7 +651,7 @@ padding: 70px 0;
     word-wrap: unset;
     -webkit-box-orient: unset;
     box-orient: unset;
-
+    padding: 0 20px;
 	}
 	.news .wrap{
 		padding: 0px;
@@ -673,7 +667,7 @@ padding: 70px 0;
 	}
 	.two-title{
 		display: block;
-		padding: 0 10px;
+		padding: 0 20px;
 		margin-top: 20px;
 		color: var(--text-color-dark);
 	}
@@ -682,6 +676,7 @@ padding: 70px 0;
 		margin-top: 10px;
 	}
 	.autor-news__col{
+		border: none;
 		max-width: 100%;
 		margin: 30px 0;
 		height: auto;
@@ -699,7 +694,7 @@ padding: 70px 0;
 
 @media (max-width: 789px){
 	.header {
-    padding: 10px 0;
+    padding:0;
 	}
 	.news {
     padding: 40px 0;
@@ -726,17 +721,31 @@ padding: 70px 0;
 	.nav{
 		display: none;
 	}
+	.slider__slides{
+		height: 380px;
+	}
 	.footer{
 		display: block;
 		padding: 0 25px;
 		z-index: 9999;
 	}
+	.slide__title{
+		width: 90%;
+		font-size: 27px
+	}
 }
 
 @media (max-width: 480px){
+	.slider__slides {
+    height: 300px;
+	}
 	.header-top {
     height: auto;
     padding: 10px;
+	}
+	.slide__title {
+    width: 99%;
+    font-size: 20px;
 	}
 	.autor-news__col{
 		margin: 30px 0;

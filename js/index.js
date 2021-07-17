@@ -90,8 +90,7 @@ wsVideoModalInit(options = [
 const swiper = new Swiper('.swiper-container', {
   // Optional parameters
   slidesPerView: 1,
-  // direction: 'vertical',
-  // loop: true,
+  // spaceBetween: 50,
 
   // If we need pagination
   pagination: {
@@ -107,5 +106,13 @@ const swiper = new Swiper('.swiper-container', {
   // And if we need scrollbar
   scrollbar: {
     el: '.swiper-scrollbar',
+  },
+    navigation: {
+    nextEl: '.slider-next',
+    prevEl: '.slider-prev',
+  },
+  pagination: {
+    el: '.slider-pagination',
+    type: 'bullets',
   },
 })
