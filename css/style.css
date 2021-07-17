@@ -6,6 +6,7 @@
 	--text-color-dark: #040404;
 	--text-color: #2b2b2b;
 	--border-color: #d0d0d0;
+	--swiper-theme-color: #ffffff;
 }
 @media (prefers-reduced-motion: no-preference) {
 	:root {
@@ -14,7 +15,7 @@
 }
 @font-face {
     font-family: 'Ubuntu';
-    src: url('/Ubuntu-Bold.c738b651.woff') format('woff');
+    src: url('../fonts/Ubuntu-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -22,7 +23,7 @@
 
 @font-face {
     font-family: 'Ubuntu';
-    src: url('/Ubuntu-Regular.ae32a861.woff') format('woff');
+    src: url('../fonts/Ubuntu-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -30,7 +31,7 @@
 
 @font-face {
     font-family: 'Ubuntu';
-    src: url('/Ubuntu-Light.c7005022.woff') format('woff');
+    src: url('../fonts/Ubuntu-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -230,7 +231,7 @@ cursor: pointer;
 position: relative;
 background: #d0d0d0;
 width: 90%;
-height: 520px;
+height: 590px;
 margin: 0 auto;
 overflow: hidden;
 }
@@ -253,7 +254,7 @@ overflow: hidden;
 	-webkit-box-align: end;
 	    -ms-flex-align: end;
 	        align-items: flex-end;
-	height: 100%;
+	height: 500px;
 	overflow: hidden;
 }
 .slider__slides img{
@@ -273,9 +274,6 @@ overflow: hidden;
 }
 .slide__title{
 margin-bottom: 25px;
-}
-.slide__description{
-font-size: 16px;
 }
 .slider__slides iframe{
 	width: 100%;
@@ -609,7 +607,25 @@ padding: 70px 0;
     object-fit: cover;
 }
 
+//----------- Slider -------------
+.swiper-scrollbar-drag {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    left: 0;
+    top: 0;
+}
+.swiper-button-next, .swiper-button-prev{
+	color: #fff;
+}
+.swiper-pagination-bullet{
+	background: #ffffff;
+}
 
+
+//----------- Media --------------
 
 @media (max-width: 1199px){
 	.news__grid{
@@ -659,7 +675,7 @@ padding: 70px 0;
 		display: block;
 		padding: 0 10px;
 		margin-top: 20px;
-		color: var(--color-darck);
+		color: var(--text-color-dark);
 	}
 	.two-title:last-child{
 		display: block;
@@ -722,10 +738,6 @@ padding: 70px 0;
     height: auto;
     padding: 10px;
 	}
-	.news__col {
-    max-width: 100%;
-    height: 390px;
-	}
 	.autor-news__col{
 		margin: 30px 0;
 		width: 100%;
@@ -740,5 +752,3 @@ padding: 70px 0;
 		height: 70px;
 	}
 }
-
-/*# sourceMappingURL=/style.78032849.css.map */
