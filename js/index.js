@@ -1,72 +1,4 @@
-// Start slider
-const $container = document.querySelector('#slider');
-const $slideRow = $container.querySelector('.slider__row');
-const $slideWrap = $container.querySelector('.slider__wrap');
-const $slideSelector = $container.querySelectorAll('.slider__slides');
-const $next = document.querySelector('#next');
-const $back = document.querySelector('#back');
-const $pagination = $container.querySelector('.slider__pagination');
-
-
-const slideWirth = $slideRow.clientWidth
-const slideLength = $slideSelector.length;
-let count = 0;
-let marginValue = 0;
-
-function slideWirthFu(slideWirth){
-		$slideSelector.forEach(function(item) {
-		item.style.width = `${slideWirth}px`
-	});
-};
-slideWirthFu(slideWirth);
-
-function createPagination(){
-	for (var i = 0; i < slideLength; i++) {
-		const span = document.createElement('span');
-		span.className = "pagination__items";
-		$pagination.prepend(span);
-	}
-	$container.querySelector('.pagination__items').classList.add('active');
-};
-createPagination();
-
-// placeholder
-
-function sliderEvent(){
-	const pg = $container.querySelectorAll('.pagination__items')
-	$next.addEventListener('click', ()=>{
-		if(count < slideLength - 1){
-				pgRemoveActive();
-				count++
-				marginValue = marginValue + slideWirth;
-				$slideWrap.style.left = `-${marginValue}px`;
-				pg[count].classList.add('active');
-			}
-	})
-	$back.addEventListener('click', ()=>{
-		if(count > 0){
-				pgRemoveActive();
-				count--
-				marginValue = marginValue - slideWirth;
-				$slideWrap.style.left = `-${marginValue}px`;
-				pg[count].classList.add('active');
-			}
-	})
-};
-
-sliderEvent();
-
-function pgRemoveActive(){
-	const pg = $container.querySelectorAll('.pagination__items');
-	pg.forEach(function(item) {
-		item.classList.remove('active');
-	});
-};
-
-
-
 // Video modal
-
 function wsVideoModalInit(opnions){
 	const id = options[0].src
 	let widthVideo = null
@@ -153,5 +85,34 @@ wsVideoModalInit(options = [
 		decription: 'Text Text Text Text Text Text Text Text Text Text Text Text',
 	},
 ])
-	
 
+// Swiper
+const swiper = new Swiper('.swiper-container', {
+  // Optional parameters
+  slidesPerView: 1,
+  // spaceBetween: 50,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+    navigation: {
+    nextEl: '.slider-next',
+    prevEl: '.slider-prev',
+  },
+  pagination: {
+    el: '.slider-pagination',
+    type: 'bullets',
+  },
+})
