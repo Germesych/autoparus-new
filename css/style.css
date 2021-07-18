@@ -87,7 +87,6 @@ p{
 	-webkit-line-clamp: 1;
 	line-clamp: 1;
 	display: -webkit-box;
-	display: box;
 	word-wrap: break-word;
 	-webkit-box-orient: vertical;
 	box-orient: vertical;
@@ -102,7 +101,6 @@ p{
 	-webkit-line-clamp: 2;
 	line-clamp: 2;
 	display: -webkit-box;
-	display: box;
 	word-wrap: break-word;
 	-webkit-box-orient: vertical;
 	box-orient: vertical;
@@ -116,7 +114,6 @@ p{
 	-webkit-line-clamp: 3;
 	line-clamp: 3;
 	display: -webkit-box;
-	display: box;
 	word-wrap: break-word;
 	-webkit-box-orient: vertical;
 	box-orient: vertical;
@@ -132,7 +129,7 @@ p{
 }
 .header-top{
 	width: 100%;
-	height: 120px;
+	height: 60px;
 	border-bottom: 1px solid var(--border-color);
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -202,10 +199,10 @@ p{
 
 /* Header */
 .header{
-padding: 70px 0;
+padding: 30px 0;
 }
 
-//----------- Slider -------------
+/*----------- Slider -------------*/
 .swiper-scrollbar-drag {
     height: 100%;
     width: 100%;
@@ -224,7 +221,7 @@ padding: 70px 0;
 }
 .slider-wrap{
 	position: relative;
-	padding: 0 var(--slider-wibth-padding_nav);
+	padding: 0 140px;
 	width: 100%;
 	height: 100%; 
 }
@@ -291,7 +288,14 @@ padding: 70px 0;
 }
 .swiper-pagination-bullet{
 	background-color: #000;
-	margin-right: 5px;
+	margin-right: 25px;
+}
+.swiper-pagination-bullet:last-child{
+	margin-right: 0;
+}
+.swiper-pagination-bullet{
+	width: 12px;
+	height: 12px;
 }
 /*.swiper-pagination-bullet-active{}*/
 
@@ -304,7 +308,7 @@ padding: 70px 0;
 	background-color: #fafafa;
 }
 .news{
-padding: 70px 0;
+padding: 20px 0;
 }
 .news__grid{
 	display: -webkit-box;
@@ -316,11 +320,14 @@ padding: 70px 0;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
 }
+.first-block .news__grid{
+	height: 235px;
+}
 .news__col{
 	position: relative;
 	display: block;
 	text-decoration: none;
-	max-width: 370px;
+	max-width: 320px;
 	width: 100%;
 	height: auto;
 	margin-right: 20px;
@@ -338,7 +345,7 @@ padding: 70px 0;
 }
 .news__col img{
 	width: 100%;
-	height: 200px;
+	height: 120px;
 	-o-object-fit: cover;
 	object-fit: cover;
 	-webkit-filter: brightness(60%);
@@ -346,6 +353,9 @@ padding: 70px 0;
 }
 .news__col:hover{
 	background-color: #fafafa;
+}
+.autor-news{
+	padding-top: 30px;
 }
 .autor-news__col-header{
 	padding: 0 7px;
@@ -363,16 +373,16 @@ padding: 70px 0;
 }
 .new__col-description{
 	margin-top: 15px;
-	padding: 0px 10px;
+	padding: 0 10px;
 	color: var(--text-color);
 }
 
 .autor-news__col{
 	display: block;
 	text-decoration: none;
-	border: 1px solid var(--border-color);
+	/*border: 1px solid var(--border-color);*/
 	max-width: 530px;
-	height: 730px;
+	height: 600px;
 	margin-right: 50px;
 	margin-bottom: 50px;
 	overflow: hidden;
@@ -382,9 +392,8 @@ padding: 70px 0;
 	margin-bottom: 0;
 }
 .autor-news__header{
-	padding: 15px 20px;
-	margin-bottom: 10px;
-	height: 60px;
+	margin-left: 20px;
+	height: 40px;
 	width: 100%;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -409,7 +418,7 @@ padding: 70px 0;
 }
 .autor-news__img{
 	width: 100%;
-	height: 417px;
+	height: 352px;
 }
 .autor-news__img img{
 	width: 100%;
@@ -423,8 +432,8 @@ padding: 70px 0;
 	text-decoration: none;
 }
 .autor-news__title{
-	font-size: 24px;
-	margin: 25px 0;
+	font-size: 26px;
+	margin: 10px 0;
 }
 .autor-news__text{
 	-ms-text-overflow: ellipsis;
@@ -434,7 +443,6 @@ padding: 70px 0;
 	-webkit-line-clamp: 3;
 	line-clamp: 3;
 	display: -webkit-box;
-	display: box;
 	word-wrap: break-word;
 	-webkit-box-orient: vertical;
 	box-orient: vertical;
@@ -443,16 +451,15 @@ padding: 70px 0;
 }
 .autor-news__date{
 	text-align: right;
-	font-size: 16px;
-	font-weight: bold;
-	margin-top: 20px;
-	color: var(--text-color-dark);
+	font-size: 12px;
+	margin-top: 10px;
+	color: #86878B;
 }
 .autor-news__time{
 	display: inline-block;
-	font-size: 16px;
-	font-weight: bold;
+	font-size: 12px;
 	margin-left: 20px;
+	color: #86878B;
 }
 .in-top{
 	font-size: 30px;
@@ -607,7 +614,7 @@ padding: 70px 0;
     object-fit: cover;
 }
 
-//----------- Media --------------
+/*----------- Media --------------*/
 
 @media (max-width: 1199px){
 	.news__grid{
@@ -647,7 +654,6 @@ padding: 70px 0;
     -webkit-line-clamp: unset;
     line-clamp: 3;
     display: -webkit-box;
-    display: box;
     word-wrap: unset;
     -webkit-box-orient: unset;
     box-orient: unset;
