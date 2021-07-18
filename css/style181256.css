@@ -354,10 +354,10 @@ padding: 20px 0;
 .news__col:hover{
 	background-color: #fafafa;
 }
-.autor-news{
+.author-news{
 	padding-top: 50px;
 }
-.autor-news__col-header{
+.author-news__col-header{
 	padding: 0 7px;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -377,7 +377,7 @@ padding: 20px 0;
 	color: var(--text-color);
 }
 
-.autor-news__col{
+.author-news__col{
 	display: block;
 	text-decoration: none;
 	/*border: 1px solid var(--border-color);*/
@@ -387,11 +387,11 @@ padding: 20px 0;
 	margin-bottom: 50px;
 	overflow: hidden;
 }
-.autor-news__col:last-child{
+.author-news__col:last-child{
 	margin-right: 0;
 	margin-bottom: 0;
 }
-.autor-news__header{
+.author-news__header{
 	/*margin-left: 20px;*/
 	height: 40px;
 	width: 100%;
@@ -402,7 +402,7 @@ padding: 20px 0;
 	    -ms-flex-align: center;
 	        align-items: center;
 }
-.autor-news__avatar{
+.author-news__avatar{
 	width: 30px;
 	height: 30px;
 	border-radius: 100%;
@@ -410,31 +410,31 @@ padding: 20px 0;
 	-o-object-fit: cover;
 	   object-fit: cover;
 }
-.autor-news__name{
+.author-news__name{
 	display: inline-block;
 	font-size: 18px;
 	font-weight: bold;
 	color: #000;
 }
-.autor-news__img{
+.author-news__img{
 	width: 100%;
 	height: 352px;
 }
-.autor-news__img img{
+.author-news__img img{
 	width: 100%;
 	height: 100%;
 	-o-object-fit: cover;
 	   object-fit: cover;
 }
-.autor-news__content{
+.author-news__content{
 	display: block;
 	text-decoration: none;
 }
-.autor-news__title{
+.author-news__title{
 	font-size: 26px;
 	margin: 10px 0;
 }
-.autor-news__text{
+.author-news__text{
 	-ms-text-overflow: ellipsis;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -448,13 +448,13 @@ padding: 20px 0;
 	font-size: 16px;
 	line-height: 1.4;
 }
-.autor-news__date{
+.author-news__date{
 	text-align: right;
 	font-size: 12px;
 	margin-top: 10px;
 	color: #86878B;
 }
-.autor-news__time{
+.author-news__time{
 	display: inline-block;
 	font-size: 12px;
 	margin-left: 20px;
@@ -467,8 +467,54 @@ padding: 20px 0;
 	color: #000;
 	margin: 50px;
 }
-/* Footer */
+/* --- Article Page --- */
+.article__container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 50px;
+}
+.article__container .main{
+	max-width: 1240px;
+}
+.article-page{}
+.article{}
+.article .wrap{}
+.title{
+	margin-bottom: 30px;
+	font-size: 40px;
+}
+.subtitle{
+	margin: 30px 0;
+}
+.article__slider{}
+.article__content p{
+	line-height: 1.65;
+	margin-bottom: 15px;
+	font-size: 16px;
+}
+.article__author-block{
+	text-align: right;
+	padding-right: 30px;
+}
+.article__author-desc{
+	display: inline-block;
+	font-size: 10px;
+}
+.article__author{
+	display: inline-block;
+	margin-left: 10px;
+	font-weight: bold;
+}
+.aside{
+	/*border: 1px solid #000;*/
+	width: 400px;
+	min-height: 450px;
+	padding-top: 25px;
+}
+/* --- /.Article Page --- */
 
+/* Footer */
 .footer{
 	display: none;
 	background: #fff;
@@ -476,7 +522,7 @@ padding: 20px 0;
 	bottom: 0px;
 	width: 100%;
 	height: 70px;
-	border-top: 1px solid var(--border-color);
+	/*border-top: 1px solid var(--border-color);*/
 	padding: 0 10px;
 } 
 
@@ -604,7 +650,7 @@ padding: 20px 0;
 }
 /* modal video END */
 
-.autor-news__avatar {
+.author-news__avatar {
     width: 30px !important;
     height: 30px !important;
     border-radius: 100%;
@@ -620,7 +666,7 @@ padding: 20px 0;
 	-ms-flex-pack: distribute;
 	justify-content: space-around;
 	}
-	.autor-news__col{
+	.author-news__col{
 		margin: 50px 10px;
 	}
 }
@@ -639,13 +685,13 @@ padding: 20px 0;
 	.slider-wrap{
 		padding: 0;
 	}
-	.autor-news__col-header{
+	.author-news__col-header{
 		padding: 0 20px;
 	}
-	.autor-news__content{
+	.author-news__content{
 		padding: 0 10px;
 	}
-	.autor-news__text{
+	.author-news__text{
 		-ms-text-overflow: unset;
 		text-overflow: unset;
 		overflow: hidden;
@@ -700,14 +746,14 @@ padding: 20px 0;
 		display: block;
 		margin-top: 10px;
 	}
-	.autor-news__col{
+	.author-news__col{
 		border: none;
 		max-width: 100%;
 		margin: 30px 0;
 		height: auto;
 		padding-bottom: 20px;
 	}
-	.autor-news__avatar {
+	.author-news__avatar {
     width: 30px !important;
     height: 30px !important;
     border-radius: 100%;
@@ -772,13 +818,13 @@ padding: 20px 0;
     width: 99%;
     font-size: 20px;
 	}
-	.autor-news__col{
+	.author-news__col{
 		margin: 30px 0;
 		width: 100%;
 		height: auto;
 		padding-bottom: 20px;
 	}
-	.autor-news__img {
+	.author-news__img {
     width: 100%;
     height: 280px;
 	}
