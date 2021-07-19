@@ -545,13 +545,45 @@ padding: 20px 0;
 	-ms-flex-align: center;
 	align-items: center;
 	-ms-flex-pack: distribute;
-	justify-content: space-around;
+	justify-content: space-between;
 	height: 100%;
 	cursor: pointer;
 }
+/*----------------------------------------------------------------------------*/
 .footer__items{
-	/*border: 1px solid;*/
+	position: relative;
 }
+.footer__items::before{
+	content: "";
+	background-color: rgba(182, 88, 91, 0.3);
+	filter: blur(10px);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0 auto;
+	border-radius: 100%;
+	width: 0px;
+	height: 0px;
+	z-index: -1;
+	animation-name: buttton-effect;
+	animation-duration: 2s;
+}
+@keyframes buttton-effect{
+	from{
+		width: 0px;
+		height: 0px;
+	}
+	50%{
+		width: 50px;
+		height: 50px;
+	}
+	to{
+		width: 0px;
+		height: 0px;
+	}
+}
+
 .footer__items-icon{
 	display: block;
 	width: 30px;
