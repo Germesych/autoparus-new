@@ -78,6 +78,7 @@ p{
 	line-height: 1.65;
 	color: var(--text-color);
 }
+
 /* Одна строка */
 .single-line{
 	-ms-text-overflow: ellipsis;
@@ -552,8 +553,24 @@ padding: 20px 0;
 /*----------------------------------------------------------------------------*/
 .footer__items{
 	position: relative;
+	z-index: 9;
 }
-.footer__items::before{
+/*.nav__link .footer__items-icon{
+	position: relative;
+	z-index: -1;
+}*/
+.btn-effect{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+}
+.button-effect{
+	position: relative;
+}
+.button-effect::before{
 	content: "";
 	background-color: rgba(182, 88, 91, 0.3);
 	filter: blur(10px);
@@ -569,6 +586,8 @@ padding: 20px 0;
 	animation-name: buttton-effect;
 	animation-duration: 2s;
 }
+	
+
 @keyframes buttton-effect{
 	from{
 		width: 0px;

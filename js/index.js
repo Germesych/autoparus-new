@@ -116,3 +116,20 @@ const swiper = new Swiper('.swiper-container', {
     type: 'bullets',
   },
 })
+
+const footerBtn = document.querySelectorAll('.btn-effect');
+
+function deleteBtnEffects(){
+	footerBtn.forEach(function(item) {
+	item.offsetParent.classList.remove('button-effect')
+	// console.dir(item.offsetParent)
+	});
+}
+footerBtn.forEach(function(item) {
+	item.classList.remove('buttton-effect')
+	item.addEventListener('click', (event)=>{
+		console.log(event.target.offsetParent)
+		event.target.offsetParent.classList.add('button-effect')
+		setTimeout(deleteBtnEffects, 2000);
+	})
+});
