@@ -87,99 +87,139 @@ p {
   line-height: 1.65;
   color: var(--text-color);
 }
+
 /* Vido Moduls */
+
 .ws-video,
 .ws-video-modal__content,
 .ws-video-modal__content-icon,
 .ws-video-modal__icon-play,
-.ws-video-modal__preview
-{
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+.ws-video-modal__preview {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.ws-video{
-	background-color: #000;
+
+.ws-video-modal__content {
+  background-color: rgba(0, 0, 0, .7);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
-.ws-video-modal__content{
-	position: relative;
-	width: 100%;
-	height: 100%;
-	cursor: pointer;
+
+.ws-video-modal__content-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 48px;
+  background-color: rgba(0, 0, 0, .4);
+  z-index: 9999;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
-.ws-video-modal__content-icon{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 70px;
-	height: 48px;
-	background-color: rgba(0,0,0, .4);
-	z-index: 9999;
-	border-radius: 14px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
+
+.ws-video-modal__icon-play {
+  width: 0px;
+  height: 0px;
+  border-width: 10px 0 10px 20px;
+  border-color: transparent;
+  border-style: solid;
+  border-left-color: #fff;
+  margin-left: 5px;
 }
-.ws-video-modal__icon-play{
-	width: 0px;
-	height: 0px;
-	border-width: 10px 0 10px 20px;
-	border-color: transparent;
-	border-style: solid;
-	border-left-color: #fff;
-	margin-left: 5px;
+
+.ws-video-modal__preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.ws-video-modal__preview{
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+
+.ws-video-modal__overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
 }
-.ws-video-modal__overlay{
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 9;
+
+.ws-video-modal__overlay:hover .ws-video-modal__content-icon {
+  background-color: red;
 }
-.ws-video-modal__overlay:hover .ws-video-modal__content-icon{
-	background-color: red;
+
+.ws-modal__v-top-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
-.ws-modal__v-top-overlay{
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	width: 100vw;
-  height: 100vh;
-	background-color: rgba(0,0,0,.8);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 9999;
+
+.ws-modal__video-wrap {
+  position: relative;
 }
-.ws-modal__video-wrap{
-	position: relative;
+
+.ws-modal__iframe {
+  width: 780px;
+  height: 460px;
 }
-.ws-modal__iframe{
-	width: 100%;
+
+.ws-modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 50px;
+  color: #fff;
+  cursor: pointer;
 }
-.ws-modal__close{
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	font-size: 50px;
-	color: #fff;
-	cursor: pointer;
+
+.scrol-none {
+  overflow: hidden !important;
 }
-.scrol-none{
-	overflow: hidden !important;
+
+@media (max-width: 980px) {
+  .ws-modal__video-wrap {
+    padding-top: 40px;
+  }
 }
+
+@media (max-width: 800px) {
+  .ws-modal__iframe {
+    width: 670px;
+    height: 395px;
+  }
+}
+
+@media (max-width: 675px) {
+  .ws-modal__v-top-overlay {
+    align-items: flex-start;
+  }
+
+  .ws-modal__video-wrap {
+    padding-top: 130px;
+  }
+
+  .ws-modal__iframe {
+    width: 320px;
+    height: 188px;
+  }
+}
+
 /* /.Vido Moduls */
 
 /* Одна строка */
@@ -707,7 +747,7 @@ p {
   -ms-flex-align: center;
   align-items: center;
   -ms-flex-pack: distribute;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 100%;
   cursor: pointer;
 }
@@ -718,10 +758,6 @@ p {
   z-index: 9;
 }
 
-/*.nav__link .footer__items-icon{
-	position: relative;
-	z-index: -1;
-}*/
 .btn-effect {
   position: absolute;
   top: 0;
