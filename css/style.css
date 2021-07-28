@@ -848,6 +848,7 @@ p {
   color: #d1d1d1;
   font-size: 35px;
   cursor: pointer;
+  z-index: 99999;
 }
 
 .ws-modal__video {
